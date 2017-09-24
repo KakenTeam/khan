@@ -1,4 +1,6 @@
 #include "Polynomial.h"
+#include <iostream>
+using namespace std;
 
 Polynomial::Polynomial()
 {
@@ -7,20 +9,19 @@ Polynomial::Polynomial()
 
 Node *Polynomial::createNode(int hs, int sm) {
     Node *p = new Node;
-    if (p == NULL) exit(1);
     p->hs = hs;
     p->sm = sm;
     p->next = NULL;
     return p;
 }
 
-void Polynomial::addTail(int hs, int sm) {
+void Polynomial::addTail(Node *node) {
     if (this->head == NULL) this->head = this->tail = node;
     else {
-        this->tail->next = p;
-        this->tail = p; // cap nhat lai l tail
+        this->tail->next = node;
+        this->tail = node; // cap nhat lai l tail
     }
-} 
+}
 
 void Polynomial::Nhap() {
     int levelPolynomial, x;

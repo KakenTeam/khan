@@ -1,9 +1,12 @@
+#include "Polynomial.h"
 #include <iostream>
 
 using namespace std;
 
 int main()
 {
-    cout << "Hello world!" << endl;
+    Polynomial p;
+    p.Nhap();
+    p.Xuat();
     return 0;
 }

@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1506218857 source:c:\users\minht\documents\github\cplus\khan\main.cpp
+	"Polynomial.h"
+	<iostream>
+
+1506218890 c:\users\minht\documents\github\cplus\khan\include\polynomial.h
+
+1506218964 source:c:\users\minht\documents\github\cplus\khan\src\polynomial.cpp
+	"Polynomial.h"
+	<iostream>
+

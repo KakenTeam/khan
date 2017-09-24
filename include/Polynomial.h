@@ -5,7 +5,8 @@ struct Node {
     int sm;
     int hs;
     Node *next;
-}
+};
+
 
 class Polynomial
 {
@@ -16,7 +17,7 @@ class Polynomial
         void Nhap();
         void Xuat();
 
-    private 
+    private:
         Node *createNode(int hs, int sm);
         void addTail(Node *p);
 };
