@@ -35,13 +35,41 @@ void Polynomial::Nhap() {
 
 void Polynomial::Xuat() {
     Node *currentNode = this->head;
-    while (currentNode != this->tail) {
+    while (currentNode != NULL) {
         if (currentNode->hs) cout << currentNode->hs << "x^" << currentNode->sm;
+        if (currentNode->next == NULL) return;
         currentNode = currentNode->next;
         if (currentNode->hs) {
-            if (currentNode->hs > 0) cout << "+";
+            if (currentNode->hs > 0) cout << " + ";
                 else cout << " ";
         }
     }
+}
+
+Polynomial Polynomial::operator+(const Polynomial& poly) {
+    Polynomial result;
+    Node *p = new Node(), *q = new Node();
+    if (this->head->sm > poly.head->sm) {
+        p = this->head;
+        q = poly.head;
+    }
+    else {
+        p = poly.head;
+        q = this->head;
+    }
+
+    while (p->sm > q->sm) {
+        result.addTail(p);
+        p = p->next;
+    }
+
+    while (p != NULL) {
+        p->hs += q->hs;
+        result.addTail(p);
+        p = p->next;
+        q = q->next;
+    }
+
+    return result; 
 }
 

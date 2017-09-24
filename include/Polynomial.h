@@ -16,6 +16,7 @@ class Polynomial
         Polynomial();
         void Nhap();
         void Xuat();
+        Polynomial operator+(const Polynomial& poly);
 
     private:
         Node *createNode(int hs, int sm);
