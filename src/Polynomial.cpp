@@ -4,6 +4,10 @@ using namespace std;
 
 Polynomial::Polynomial()
 {
+   this->init();
+}
+
+void Polynomial::init() {
     this->head = this->tail = NULL;
 }
 
@@ -24,6 +28,7 @@ void Polynomial::addTail(Node *node) {
 }
 
 void Polynomial::Nhap() {
+    this->init();
     int levelPolynomial, x;
     cout << "\nNhap bac cua da thuc: "; cin >> levelPolynomial;
     for(int i = levelPolynomial; i >= 0; i--) {
@@ -36,14 +41,14 @@ void Polynomial::Nhap() {
 void Polynomial::Xuat() {
     Node *currentNode = this->head;
     while (currentNode != NULL) {
-        if (currentNode->hs) { 
+        if (currentNode->hs) {
             if (currentNode == this->tail) {
-                if (currentNode->hs != 0 ) 
+                if (currentNode->hs != 0 )
                     cout << currentNode->hs;
             } else
             if (currentNode->hs == 1)
                 cout << "x^" << currentNode->sm;
-            else if (currentNode->hs != 1 && currentNode->hs != 0) 
+            else if (currentNode->hs != 1 && currentNode->hs != 0)
                 cout << currentNode->hs << "x^" << currentNode->sm;
         }
         if (currentNode->next == NULL) return;
@@ -79,6 +84,6 @@ Polynomial Polynomial::operator+(const Polynomial& poly) {
         q = q->next;
     }
 
-    return result; 
+    return result;
 }
 

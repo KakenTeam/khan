@@ -19,6 +19,7 @@ class Polynomial
         Polynomial operator+(const Polynomial& poly);
 
     private:
+        void init();
         Node *createNode(int hs, int sm);
         void addTail(Node *p);
 };
