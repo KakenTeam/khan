@@ -34,9 +34,11 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/App.h" />
 		<Unit filename="include/Polynomial.h" />
 		<Unit filename="include/d.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/App.cpp" />
 		<Unit filename="src/Polynomial.cpp" />
 		<Unit filename="src/d.cpp" />
 		<Extensions>

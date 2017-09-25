@@ -30,6 +30,20 @@ void App::Run()
             p2.Xuat();
             break;
         case 3:
+            cout << "1. Dao ham da thuc 1! \n";
+            cout << "2. Dao hamda thuc 2! \n";
+            int temp2;
+            cin >> (temp2);
+            switch (temp2) {
+                case 1:
+                    p1.DaoHam();
+                    p1.Xuat();
+                    break;
+                case 2:
+                    p2.DaoHam();
+                    p2.Xuat();
+                    break;
+            }
             break;
         case 4:
             p3 = p1 + p2;
