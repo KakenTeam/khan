@@ -6,7 +6,7 @@ using namespace std;
 
 Polynomial::Polynomial()
 {
-   this->init();
+   this->head = this->tail = NULL;
 }
 
 void Polynomial::init() {
@@ -47,8 +47,7 @@ void Polynomial::DaoHam() {
         current->sm -= 1;
 
         if (current->next == this->tail) {
-            delete current->next;
-            current->next == NULL;
+            current->next = NULL;
             return;
         }
         current = current->next;

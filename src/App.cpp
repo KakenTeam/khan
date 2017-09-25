@@ -31,7 +31,7 @@ void App::Run()
             break;
         case 3:
             cout << "1. Dao ham da thuc 1! \n";
-            cout << "2. Dao hamda thuc 2! \n";
+            cout << "2. Dao ham da thuc 2! \n";
             int temp2;
             cin >> (temp2);
             switch (temp2) {
