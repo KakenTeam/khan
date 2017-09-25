@@ -16,6 +16,7 @@ class Polynomial
         Polynomial();
         void Nhap();
         void Xuat();
+        void DaoHam();
         Polynomial operator+(const Polynomial& poly);
 
     private:

@@ -1,5 +1,7 @@
 #include "Polynomial.h"
 #include <iostream>
+#include <string>
+#include <sstream>
 using namespace std;
 
 Polynomial::Polynomial()
@@ -38,19 +40,37 @@ void Polynomial::Nhap() {
     }
 }
 
+void Polynomial::DaoHam() {
+    Node *current = this->head;
+    while (current != NULL) {
+        current->hs *= current->sm;
+        current->sm -= 1;
+
+        if (current->next == this->tail) {
+            delete current->next;
+            current->next == NULL;
+            return;
+        }
+        current = current->next;
+    }
+}
+
+string In(Node* cur) {
+    int hs = cur->hs, sm = cur->sm;
+    stringstream res;
+    if (hs) {
+        if (sm == 0) res << hs;
+        if (sm == 1) res << hs << "x";
+        if (sm !=0 && sm != 1) res << hs << "x^" << sm;
+    }
+    return res.str();
+}
+
 void Polynomial::Xuat() {
     Node *currentNode = this->head;
     while (currentNode != NULL) {
-        if (currentNode->hs) {
-            if (currentNode == this->tail) {
-                if (currentNode->hs != 0 )
-                    cout << currentNode->hs;
-            } else
-            if (currentNode->hs == 1)
-                cout << "x^" << currentNode->sm;
-            else if (currentNode->hs != 1 && currentNode->hs != 0)
-                cout << currentNode->hs << "x^" << currentNode->sm;
-        }
+        int hs = currentNode->hs;
+        cout << In(currentNode);
         if (currentNode->next == NULL) return;
         currentNode = currentNode->next;
         if (currentNode->hs) {
