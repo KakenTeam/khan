@@ -105,6 +105,16 @@ Polynomial Polynomial::operator+(const Polynomial& poly) {
 
     return result;
 }
+Polynomial MultiTerm(Node *Term, Polynomial& p)
+{
+    Polynomial result;
+    while(p != NULL){
+        result->head->hs = Term->hs * p->head->hs;
+        result->head->sm = Term->sm + p->head->sm;
+        p = p->head->next;
+    }
+    return result;
+}
 Polynomial Polynomial::operator*(const Polynomial& poly) {
 
     Polynomial result, Ldc;
