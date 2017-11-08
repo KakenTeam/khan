@@ -18,6 +18,7 @@ class Polynomial
         void Xuat();
         void DaoHam();
         Polynomial operator+(const Polynomial& poly);
+        Polynomial operator*(const Polynomial& Poly);
 
     private:
         void init();

@@ -105,4 +105,31 @@ Polynomial Polynomial::operator+(const Polynomial& poly) {
 
     return result;
 }
+Polynomial Polynomial::operator*(const Polynomial& poly) {
+
+    Polynomial result, Ldc;
+    Node *p = new Node(), *q = new Node();
+    Node *tam = new Node();
+    /*
+    if (this->head->sm > poly.head->sm) {
+        p = this->head;
+        q = poly.head;
+    }
+    else {
+        p = poly.head;
+        q = this->head;
+    }
+    */
+    while(p != NULL){
+        while(q != NULL){
+           tam->hs = p->hs * q->hs;
+           tam->sm = p->sm + q->sm;
+           Ldc.addTail(tam);
+           q = q->next;
+        }
+        result = result + Ldc;
+        p = p->next;
+    }
+    return result;
+}
 

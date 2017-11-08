@@ -17,7 +17,8 @@ void App::Run()
         cout << "2. Nhap da thuc 2: \n";
         cout << "3. Dao ham: \n";
         cout << "4. Cong 2 da thuc: \n";
-        cout << "5. Thoat!!! \n";
+        cout << "5. Nhan 2 da thuc: \n";
+        cout << "6. Thoat!!! \n";
         int temp;
         cin >> temp;
         switch (temp) {
@@ -50,6 +51,10 @@ void App::Run()
             p3.Xuat();
             break;
         case 5:
+            p3 = p1 * p2;
+            p3.Xuat();
+            break;
+        case 6:
             return;
             break;
         }
