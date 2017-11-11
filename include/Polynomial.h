@@ -14,16 +14,19 @@ class Polynomial
 
     public:
         Polynomial();
+        Polynomial(Polynomial& p);
         void Nhap();
         void Xuat();
         void DaoHam();
         Polynomial operator+(const Polynomial& poly);
-        Polynomial operator*(const Polynomial& Poly);
+        Polynomial operator*(Polynomial& Poly);
+        void SetZero();
 
     private:
         void init();
         Node *createNode(int hs, int sm);
         void addTail(Node *p);
+        Polynomial multiTerm(Polynomial&p, Node* term);
 };
 
 #endif // Polynomial_H

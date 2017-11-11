@@ -9,6 +9,18 @@ Polynomial::Polynomial()
    this->head = this->tail = NULL;
 }
 
+Polynomial::Polynomial(Polynomial& p)
+{
+    this->init();
+    Node* cur = head;
+    Node* curP = p.head;
+    while (curP != NULL)
+    {
+        this->addTail(curP);
+        curP = curP->next;
+    }
+}
+
 void Polynomial::init() {
     this->head = this->tail = NULL;
 }
@@ -105,41 +117,34 @@ Polynomial Polynomial::operator+(const Polynomial& poly) {
 
     return result;
 }
-Polynomial MultiTerm(Node *Term, Polynomial& p)
+Polynomial Polynomial::multiTerm(Polynomial &p, Node *term)
 {
-    Polynomial result;
-    while(p != NULL){
-        result->head->hs = Term->hs * p->head->hs;
-        result->head->sm = Term->sm + p->head->sm;
-        p = p->head->next;
+    Polynomial result(p);
+    Node* cur = result.head;
+    while (cur != NULL)
+    {
+        cur->hs *= term->hs;
+        cur->sm += term->sm;
+        cur = cur->next;
     }
     return result;
 }
-Polynomial Polynomial::operator*(const Polynomial& poly) {
+Polynomial Polynomial::operator*(Polynomial& poly) {
 
-    Polynomial result, Ldc;
-    Node *p = new Node(), *q = new Node();
-    Node *tam = new Node();
-    /*
-    if (this->head->sm > poly.head->sm) {
-        p = this->head;
-        q = poly.head;
-    }
-    else {
-        p = poly.head;
-        q = this->head;
-    }
-    */
-    while(p != NULL){
-        while(q != NULL){
-           tam->hs = p->hs * q->hs;
-           tam->sm = p->sm + q->sm;
-           Ldc.addTail(tam);
-           q = q->next;
-        }
-        result = result + Ldc;
-        p = p->next;
+    Polynomial result;
+    result.SetZero();
+    Node* cur = this->head;
+    while(cur != NULL){
+        result = result + multiTerm(poly, cur);
+        cur = cur->next;
     }
     return result;
+}
+
+void Polynomial::SetZero()
+{
+    Node* nodeZero = createNode(0, 0);
+    this->init();
+    this->addTail(nodeZero);
 }
 
