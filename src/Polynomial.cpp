@@ -16,7 +16,8 @@ Polynomial::Polynomial(Polynomial& p)
     Node* curP = p.head;
     while (curP != NULL)
     {
-        this->addTail(curP);
+        Node* newNode = createNode(curP->hs, curP->sm);
+        this->addTail(newNode);
         curP = curP->next;
     }
 }
@@ -93,28 +94,40 @@ void Polynomial::Xuat() {
 
 Polynomial Polynomial::operator+(const Polynomial& poly) {
     Polynomial result;
-    Node *p = new Node(), *q = new Node();
-    if (this->head->sm > poly.head->sm) {
-        p = this->head;
-        q = poly.head;
-    }
-    else {
-        p = poly.head;
-        q = this->head;
-    }
+    Node *p = this->head, *q = poly.head;
 
-    while (p->sm > q->sm) {
-        result.addTail(p);
-        p = p->next;
-    }
+    while (p != NULL || q != NULL)
+    {
+        if (p == NULL)
+        {
+            result.addTail(q);
+            q = q->next;
+            continue;
+        }
+        if (q == NULL)
+        {
+            result.addTail(p);
+            p = p->next;
+            continue;
+        }
 
-    while (p != NULL) {
+        if (p->sm > q->sm) {
+            result.addTail(p);
+            p = p->next;
+            continue;
+        }
+
+        if (p->sm < q->sm) {
+            result.addTail(q);
+            q = q->next;
+            continue;
+        }
+
         p->hs += q->hs;
         result.addTail(p);
         p = p->next;
         q = q->next;
     }
-
     return result;
 }
 Polynomial Polynomial::multiTerm(Polynomial &p, Node *term)

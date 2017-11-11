@@ -62,7 +62,7 @@
 
 1510379167 f:\learning\c++\khan\include\app.h
 
-1510405664 f:\learning\c++\khan\include\polynomial.h
+1510409947 f:\learning\c++\khan\include\polynomial.h
 
 1510379351 source:f:\learning\c++\khan\src\app.cpp
 	"App.h"
@@ -71,7 +71,7 @@
 
 1510379167 source:f:\learning\c++\khan\src\d.cpp
 
-1510403688 source:f:\learning\c++\khan\src\polynomial.cpp
+1510412145 source:f:\learning\c++\khan\src\polynomial.cpp
 	"Polynomial.h"
 	<iostream>
 	<string>
