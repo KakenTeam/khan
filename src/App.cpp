@@ -35,6 +35,7 @@ void App::Run()
             cout << "2. Dao ham da thuc 2! \n";
             int temp2;
             cin >> (temp2);
+            cout << "Dao ham la: ";
             switch (temp2) {
                 case 1:
                     p1.DaoHam();
@@ -47,10 +48,12 @@ void App::Run()
             }
             break;
         case 4:
+            cout << "Tong 2 da thuc la: ";
             p3 = p1 + p2;
             p3.Xuat();
             break;
         case 5:
+            cout << "Tich cua 2 da thuc la: ";
             p3 = p1 * p2;
             p3.Xuat();
             break;
